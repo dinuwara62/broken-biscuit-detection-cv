@@ -1,24 +1,37 @@
 # Broken-Biscuit-Detection-CV
-How the System Works
-The logic follows a step-by-step process to turn a raw photo into a clear result:
 
-Color Recognition: Instead of just looking at black and white images, the code converts the photo into HSV color space. This makes it much easier to pick out the golden-brown color of the biscuits while ignoring the shadows and the white paper background.
+Project Title
+Broken Biscuit Detection using Classical Image Processing Techniques
 
-Creating a Clean Mask: By setting a specific color range, the system creates a mask where the biscuits are white and the background is black.
+Problem Description
+In food factories, broken biscuits are a common issue that can lead to waste and unhappy customers. Checking every single biscuit by hand is slow and difficult. This project solves that problem by using a computer vision system that can automatically look at a photo of biscuits and tell which ones are perfect and which ones are broken. It also identifies if the biscuit is a square cracker or a round cookie.
 
-Cleaning Up Noise: To make sure the system doesn't get confused by small crumbs or the little holes on the cracker's surface, it uses morphological operations like Opening and Closing. This "heals" the shape so the computer sees a solid object.
+Tools and Libraries Used
+The project is built with Python. I used the OpenCV library for all the image processing tasks, like picking out colors and measuring shapes. I also used NumPy to help the computer handle the math and the image data behind the scenes.
 
-Shape Analysis:
+Image Processing Methods Used
+Instead of just looking at outlines, I used a color-based approach to make the system more reliable:
 
-Circularity: The code calculates how close the shape is to a perfect circle.
+Color Isolation: I converted the images to HSV color space. This allowed me to create a specific mask that only looks for the golden-brown color of the biscuits, which helps ignore shadows and the white paper background.
 
-Vertex Counting: It counts the "corners" of the shape. For example, an intact square should have 4 corners, while a circle has many more approximated points.
+Cleaning the Shapes: I used morphological opening and closing. This basically acts like a digital brush that smooths out the edges and fills in the small toasted holes on the biscuit surface so the computer sees a solid object.
 
-Aspect Ratio: This checks if the width and height are balanced, which helps identify if a square biscuit has been snapped into a thin rectangle.
+Shape Math: Circularity: I used a formula to see how round the object is.
 
-Libraries Used
-The project is written in Python and relies on two main tools:
+Vertex Counting: The code counts the corners of the shape to tell a square from a circle.
 
-OpenCV: Used for all the heavy lifting like color filtering, finding shapes, and drawing the labels.
+Aspect Ratio: This checks if the width and height of a square biscuit are balanced. If it is too thin, the system knows it is a broken piece.
 
-NumPy: Used to handle the image data and math behind the shape detection.
+Instructions to Run the Code
+Make sure you have Python installed on your computer.
+
+Install the required tools by typing pip install opencv-python numpy in your terminal.
+
+Place your biscuit photos in a folder named inputs.
+
+Run the script. The system will automatically create an output_images folder where it saves the final results with labels.
+
+Example Output Images
+The final images show green boxes and labels for intact biscuits and red boxes for broken ones. For example, a full round biscuit will be labeled as Intact Biscuit (Circle), while a snapped cracker will show up as Broken Biscuit (Square).
+
+(Note: You can see the labeled results in my output_images folder in this repository.)
