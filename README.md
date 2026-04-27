@@ -34,4 +34,6 @@ Run the script. The system will automatically create an output_images folder whe
 Example Output Images
 The final images show green boxes and labels for intact biscuits and red boxes for broken ones. For example, a full round biscuit will be labeled as Intact Biscuit (Circle), while a snapped cracker will show up as Broken Biscuit (Square).
 
-(Note: You can see the labeled results in my output_images folder in this repository.)
+(Note: You can see the labeled results in my result_images in this repository.)
+<img width="169" height="87" alt="image" src="https://github.com/user-attachments/assets/f4117a55-f07b-42d6-8fa6-b690a3831c08" />
+
